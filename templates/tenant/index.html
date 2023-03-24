@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% block title %}{{request.tenant.name}}{% endblock %}
+{% block content %}
+<h1>Tenanted {{request.tenant.name}}</h1>
+<table>
+    <th>
+        <td>owner</td>
+        <td>product</td>
+        <td>quantity</td>
+        <td>date added</td>
+    </th>
+    {% for order in orders %}
+    <tr>
+        <td>{{order.owner.username}}</td>
+        <td>{{order.product.name}}</td>
+        <td>{{order.quantity}}</td>
+        <td>{{order.date_added}}</td>
+    </tr>
+    {% endfor %}
+</table>
+{% endblock %}
